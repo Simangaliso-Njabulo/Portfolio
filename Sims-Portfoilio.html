@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simangaliso Madonsela - Software Developer</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -152,6 +154,9 @@
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .theme-toggle:hover {
@@ -557,7 +562,9 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
             <div class="mobile-menu" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
@@ -585,8 +592,14 @@
                     <h2>Software Developer</h2>
                     <p>Versatile and adaptable software developer with experience in C#, .NET, JavaScript/TypeScript, and Azure DevOps. Committed to building clean, scalable solutions and learning through every challenge.</p>
                     <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#experience" class="btn btn-secondary">View My Work</a>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                        <a href="#experience" class="btn btn-secondary">
+                            <i class="fas fa-briefcase"></i>
+                            View My Work
+                        </a>
                     </div>
                 </div>
             </div>
@@ -598,7 +611,9 @@
             <div class="glass-card">
                 <div class="about-content">
                     <div class="about-image">
-                        <div class="profile-placeholder">SM</div>
+                        <div class="profile-placeholder">
+                            <i class="fas fa-user" style="font-size: 4rem;"></i>
+                        </div>
                     </div>
                     <div class="about-text">
                         <p>I'm a passionate software developer based in Pretoria, Hatfield, with a strong foundation in modern web technologies and cloud platforms. Currently working at Derivco, I specialize in full-stack development with expertise in C#, .NET, JavaScript, and Azure DevOps.</p>
@@ -717,34 +732,45 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
                     </form>
                 </div>
                 <div class="glass-card contact-info">
                     <h3 style="margin-bottom: 2rem; color: var(--accent);">Contact Information</h3>
                     <div class="contact-item">
-                        <div class="icon">📧</div>
+                        <div class="icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div>
                             <strong>Email</strong><br>
                             njabulos2001@gmail.com
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="icon">📱</div>
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
                         <div>
                             <strong>Phone</strong><br>
                             078 448 5251
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="icon">📍</div>
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
                         <div>
                             <strong>Location</strong><br>
                             Pretoria, Hatfield
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="icon">💼</div>
+                        <div class="icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
                         <div>
                             <strong>LinkedIn</strong><br>
                             <a href="#" style="color: var(--accent);">Simangaliso-Njabulo</a>
@@ -765,15 +791,15 @@
         // Theme toggle functionality
         function toggleTheme() {
             const body = document.body;
-            const themeToggle = document.querySelector('.theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
             
             if (body.getAttribute('data-theme') === 'light') {
                 body.removeAttribute('data-theme');
-                themeToggle.textContent = '🌙';
+                themeIcon.className = 'fas fa-moon';
                 localStorage.removeItem('theme');
             } else {
                 body.setAttribute('data-theme', 'light');
-                themeToggle.textContent = '☀️';
+                themeIcon.className = 'fas fa-sun';
                 localStorage.setItem('theme', 'light');
             }
         }
@@ -781,11 +807,11 @@
         // Load saved theme
         function loadTheme() {
             const savedTheme = localStorage.getItem('theme');
-            const themeToggle = document.querySelector('.theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
             
             if (savedTheme === 'light') {
                 document.body.setAttribute('data-theme', 'light');
-                themeToggle.textContent = '☀️';
+                themeIcon.className = 'fas fa-sun';
             }
         }
 
