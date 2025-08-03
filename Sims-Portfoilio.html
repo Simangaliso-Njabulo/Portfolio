@@ -91,11 +91,42 @@
             gap: 2rem;
         }
 
+        /* Mobile Navigation Container */
+        .nav-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: flex;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+            z-index: 999;
+            transition: all 0.3s ease;
+            padding-top: 20px; /* Account for header height */
+        }
+
+        .nav-container.active {
+            display: block;
+        }
+
+        .nav-container .nav-links {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            gap: 2rem;
+            background: transparent;
+        }
+
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 500;
+            font-size: 1.2rem;
+            padding: 1rem 0;
         }
 
         .nav-links a:hover {
@@ -123,6 +154,12 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .mobile-menu.active {
+            filter: drop-shadow(0 0 15px rgba(79, 209, 199, 0.8));
         }
 
         .mobile-menu span {
@@ -444,18 +481,6 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-secondary);
-                flex-direction: column;
-                padding: 1rem;
-                border-top: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
             }
 
             .mobile-menu {
@@ -521,6 +546,16 @@
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Navigation Container -->
+    <div class="nav-container" id="navContainer">
+        <ul class="nav-links">
+            <li><a style="border-bottom: 1px solid var(--border);"href="#home">Home</a></li>
+            <li><a style="border-bottom: 1px solid var(--border);" href="#skills">Skills</a></li>
+            <li><a style="border-bottom: 1px solid var(--border);" href="#experience">Experience</a></li>
+            <li><a style="border-bottom: 1px solid var(--border);" href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -737,8 +772,11 @@
 
         // Mobile menu toggle
         function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            const navContainer = document.getElementById('navContainer');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            navContainer.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
         }
 
         // Form submission
@@ -759,7 +797,10 @@
                     });
                 }
                 // Close mobile menu if open
-                document.getElementById('navLinks').classList.remove('active');
+                const navContainer = document.getElementById('navContainer');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                navContainer.classList.remove('active');
+                mobileMenu.classList.remove('active');
             });
         });
 
@@ -769,10 +810,20 @@
         // Add scroll effect to header
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            const navContainer = document.getElementById('navContainer');
+            
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.1)';
+                // Apply same scroll effect to mobile nav container if it's active
+                if (navContainer.classList.contains('active')) {
+                    navContainer.style.background = 'rgba(255, 255, 255, 0.1)';
+                }
             } else {
                 header.style.background = 'var(--bg-secondary)';
+                // Apply same scroll effect to mobile nav container if it's active
+                if (navContainer.classList.contains('active')) {
+                    navContainer.style.background = 'var(--bg-secondary)';
+                }
             }
         });
     </script>
