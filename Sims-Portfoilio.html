@@ -43,6 +43,8 @@
             line-height: 1.6;
             min-height: 100vh;
             transition: all 0.3s ease;
+            user-select: none;
+            cursor: default;
         }
 
         .container {
@@ -74,6 +76,13 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent);
+            user-select: none;
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 20px rgba(79, 209, 199, 0.8);
         }
 
         .nav-links {
@@ -91,6 +100,7 @@
 
         .nav-links a:hover {
             color: var(--accent);
+            text-shadow: 0 0 15px rgba(79, 209, 199, 0.6);
         }
 
         .theme-toggle {
@@ -106,6 +116,7 @@
         .theme-toggle:hover {
             background: var(--accent);
             color: white;
+            box-shadow: 0 0 20px rgba(79, 209, 199, 0.5);
         }
 
         .mobile-menu {
@@ -206,7 +217,7 @@
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px var(--shadow);
+            box-shadow: 0 10px 25px var(--shadow), 0 0 30px rgba(79, 209, 199, 0.4);
         }
 
         /* Glass Card */
@@ -222,7 +233,7 @@
 
         .glass-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px var(--shadow);
+            box-shadow: 0 15px 40px var(--shadow), 0 0 40px rgba(79, 209, 199, 0.2);
         }
 
         /* Sections */
@@ -387,6 +398,8 @@
             background: var(--bg-card);
             color: var(--text-primary);
             font-family: inherit;
+            user-select: text;
+            cursor: text;
         }
 
         .form-group textarea {
@@ -492,7 +505,7 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">SM</div>
+            <div class="logo">SIMS</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
