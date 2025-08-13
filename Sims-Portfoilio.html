@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simangaliso Madonsela - Software Developer</title>
+    <title>Simangaliso Madonsela - Software Engineer</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -212,6 +212,43 @@
             z-index: 2;
         }
 
+        .hero-header {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px var(--shadow), 0 0 40px rgba(79, 209, 199, 0.3);
+            overflow: hidden;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
@@ -225,8 +262,18 @@
         .hero h2 {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             font-weight: 400;
+        }
+
+        .hero .location {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .hero p {
@@ -234,6 +281,36 @@
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto 2rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px var(--shadow), 0 0 30px rgba(79, 209, 199, 0.4);
         }
 
         .cta-buttons {
@@ -297,8 +374,7 @@
         /* Ensure all main sections get proper spacing */
         section#about,
         section#skills, 
-        section#experience,
-        section#contact {
+        section#experience{
             margin-bottom: 4rem;
         }
 
@@ -325,17 +401,9 @@
             text-align: center;
         }
 
-        .profile-placeholder {
+        .about-image .profile-placeholder {
             width: 250px;
             height: 250px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            margin: 0 auto;
         }
 
         /* Skills Section */
@@ -418,19 +486,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
         .form-group {
             display: flex;
             flex-direction: column;
@@ -459,39 +514,6 @@
             min-height: 120px;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-3px);
-            background: var(--bg-secondary);
-            box-shadow: 0 10px 25px var(--shadow), 0 0 30px rgba(79, 209, 199, 0.3);
-        }
-
-        .contact-item .icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
         /* Footer */
         footer {
             background: var(--bg-secondary);
@@ -511,13 +533,13 @@
                 display: flex;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .hero-header {
+                flex-direction: column;
+                gap: 2rem;
             }
 
-            .contact-content {
-                grid-template-columns: 1fr;
+            .hero-text {
+                order: 2;
             }
 
             .timeline-item {
@@ -526,6 +548,11 @@
 
             .skills-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
         }
 
@@ -558,9 +585,8 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#skills">Skills</a></li>
             </ul>
             <button class="theme-toggle" onclick="toggleTheme()">
                 <i class="fas fa-moon" id="theme-icon"></i>
@@ -577,9 +603,8 @@
     <div class="nav-container" id="navContainer">
         <ul class="nav-links">
             <li><a style="border-bottom: 1px solid var(--border);"href="#home">Home</a></li>
-            <li><a style="border-bottom: 1px solid var(--border);" href="#skills">Skills</a></li>
             <li><a style="border-bottom: 1px solid var(--border);" href="#experience">Experience</a></li>
-            <li><a style="border-bottom: 1px solid var(--border);" href="#contact">Contact</a></li>
+            <li><a style="border-bottom: 1px solid var(--border);" href="#skills">Skills</a></li>
         </ul>
     </div>
 
@@ -588,17 +613,38 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Simangaliso Madonsela</h1>
-                    <h2>Software Developer</h2>
-                    <p>Versatile and adaptable software developer with experience in C#, .NET, JavaScript/TypeScript, and Azure DevOps. Committed to building clean, scalable solutions and learning through every challenge.</p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i>
-                            Get In Touch
+                    <div class="hero-header">
+                        <div class="hero-text">
+                            <h1>Simangaliso Madonsela</h1>
+                            <h2>Software Engineer</h2>
+                            <div class="location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Pretoria, Hatfield, South Africa
+                            </div>
+                        </div>
+                    </div>
+                    <p>Versatile and adaptable software engineer with experience in C#, .NET, JavaScript/TypeScript, and Azure DevOps. Committed to building clean, scalable solutions and learning through every challenge.</p>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/simangaliso-m-085b13107/" target="_blank" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#experience" class="btn btn-secondary">
-                            <i class="fas fa-briefcase"></i>
-                            View My Work
+                        <a href="https://github.com/Simangaliso-Njabulo" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:njabulos2001@gmail.com" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+27784485251" class="social-link" title="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary" onclick="downloadCV()">
+                            <i class="fas fa-download"></i>
+                            Download CV
                         </a>
                     </div>
                 </div>
@@ -612,15 +658,51 @@
                 <div class="about-content">
                     <div class="about-image">
                         <div class="profile-placeholder">
-                            <i class="fas fa-user" style="font-size: 4rem;"></i>
+                            <img src="https://drive.google.com/uc?export=view&id=1p6rHqj8ON8wDZM37Op83iK3Gm4z10a0W" 
+                                 alt="Simangaliso Madonsela" 
+                                 class="profile-image"
+                                 onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-user\' style=\'font-size: 4rem;\'></i>';">
                         </div>
                     </div>
                     <div class="about-text">
-                        <p>I'm a passionate software developer based in Pretoria, Hatfield, with a strong foundation in modern web technologies and cloud platforms. Currently working at Derivco, I specialize in full-stack development with expertise in C#, .NET, JavaScript, and Azure DevOps.</p>
+                        <p>I'm a passionate software engineer based in Pretoria, Hatfield, with a strong foundation in modern web technologies and cloud platforms. Currently working at Derivco, I specialize in web development with expertise in C#, .NET, JavaScript, and Azure DevOps.</p>
                         <br>
                         <p>My journey in software development has been marked by continuous learning and adaptation. From implementing cryptocurrency withdrawal features to working on AI-driven testing tools, I thrive in dynamic environments where I can take on new challenges and expand my skill set.</p>
                         <br>
-                        <p>I hold a Bachelor of Science in Information Technology from North-West University and am a member of the Golden Key International Honour Society. I'm also Microsoft Azure Fundamentals certified and ISTQB Certified Tester Foundation Level.</p>
+                        <p>I hold a Bachelor of Science in Information Technology from North-West University and am a member of the Golden Key International Honour Society. I'm also Microsoft and ISTQB Certified.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="glass-card experience-card">
+                        <h3>Software Developer</h3>
+                        <div class="company">Derivco, Pretoria</div>
+                        <div class="period">Jun 2024 - Present</div>
+                        <ul>
+                            <li>Implemented cryptocurrency withdrawal features with full-stack integration</li>
+                            <li>Resolved critical production issues improving system reliability</li>
+                            <li>Managed Azure DevOps pipelines and automated release workflows</li>
+                            <li>Expanded responsibilities across QA, PM, and BA roles post-restructure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="glass-card experience-card">
+                        <h3>Graduate: Software Developer</h3>
+                        <div class="company">Derivco, Pretoria</div>
+                        <div class="period">Feb 2023 - May 2024</div>
+                        <ul>
+                            <li>Worked on withdrawals team interfacing between frontend and backend payout systems</li>
+                            <li>Contributed to AI-driven tool for generating unit tests and documentation</li>
+                            <li>Supported environment consolidation project for US and ROW banking systems</li>
+                            <li>Gained experience with JavaScript, TypeScript, API proxies, and deployment strategies</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -679,115 +761,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <div class="glass-card experience-card">
-                        <h3>Software Developer</h3>
-                        <div class="company">Derivco, Pretoria</div>
-                        <div class="period">Jun 2024 - Present</div>
-                        <ul>
-                            <li>Implemented cryptocurrency withdrawal features with full-stack integration</li>
-                            <li>Resolved critical production issues improving system reliability</li>
-                            <li>Managed Azure DevOps pipelines and automated release workflows</li>
-                            <li>Expanded responsibilities across QA, PM, and BA roles post-restructure</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="glass-card experience-card">
-                        <h3>Graduate: Software Developer</h3>
-                        <div class="company">Derivco, Pretoria</div>
-                        <div class="period">Feb 2023 - May 2024</div>
-                        <ul>
-                            <li>Worked on withdrawals team interfacing between frontend and backend payout systems</li>
-                            <li>Contributed to AI-driven tool for generating unit tests and documentation</li>
-                            <li>Supported environment consolidation project for US and ROW banking systems</li>
-                            <li>Gained experience with JavaScript, TypeScript, API proxies, and deployment strategies</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="glass-card">
-                    <h3 style="margin-bottom: 2rem; color: var(--accent);">Send me a message</h3>
-                    <form class="contact-form" onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-                <div class="glass-card contact-info">
-                    <h3 style="margin-bottom: 2rem; color: var(--accent);">Contact Information</h3>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <strong>Email</strong><br>
-                            njabulos2001@gmail.com
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <strong>Phone</strong><br>
-                            078 448 5251
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <strong>Location</strong><br>
-                            Pretoria, Hatfield
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div>
-                            <strong>LinkedIn</strong><br>
-                            <a href="https://www.linkedin.com/in/simangaliso-m-085b13107/" target="_blank" style="color: var(--accent);">Simangaliso Madonsela</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div>
-                            <strong>GitHub</strong><br>
-                            <a href="https://github.com/Simangaliso-Njabulo" target="_blank" style="color: var(--accent);">Simangaliso-Njabulo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -797,6 +770,21 @@
     </footer>
 
     <script>
+        // Download CV function
+        function downloadCV() {
+            // Use the Google Drive direct download link
+            const cvUrl = 'https://drive.google.com/uc?export=download&id=1jdj1ZgclThxVQ3OzxZFwI40qObmx5WsW';
+            
+            // Create a temporary link and trigger download
+            const link = document.createElement('a');
+            link.href = cvUrl;
+            link.download = 'Simangaliso_Madonsela_CV.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
         // Theme toggle functionality
         function toggleTheme() {
             const body = document.body;
@@ -805,23 +793,16 @@
             if (body.getAttribute('data-theme') === 'light') {
                 body.removeAttribute('data-theme');
                 themeIcon.className = 'fas fa-moon';
-                localStorage.removeItem('theme');
             } else {
                 body.setAttribute('data-theme', 'light');
                 themeIcon.className = 'fas fa-sun';
-                localStorage.setItem('theme', 'light');
             }
         }
 
         // Load saved theme
         function loadTheme() {
-            const savedTheme = localStorage.getItem('theme');
             const themeIcon = document.getElementById('theme-icon');
-            
-            if (savedTheme === 'light') {
-                document.body.setAttribute('data-theme', 'light');
-                themeIcon.className = 'fas fa-sun';
-            }
+            // Default to dark theme, no need to check localStorage in this version
         }
 
         // Mobile menu toggle
@@ -831,12 +812,6 @@
             
             navContainer.classList.toggle('active');
             mobileMenu.classList.toggle('active');
-        }
-
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
         }
 
         // Smooth scrolling for navigation links
